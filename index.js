@@ -178,6 +178,105 @@ app.use("/api", (req, res) => {
     });
 
 });
+// =====================================
+// MUSIC SEARCH API
+// =====================================
+
+app.get("/api/music/search", async (req, res) => {
+
+    try {
+
+        const apikey = req.query.apikey;
+        const query = req.query.q;
+
+        // Check API key
+        if (!apikey) {
+            return res.status(401).json({
+                status: false,
+                message: "API key is required"
+            });
+        }
+
+        if (
+            !process.env.API_KEY ||
+            apikey !== process.env.API_KEY
+        ) {
+            return res.status(403).json({
+                status: false,
+                message: "Invalid API key"
+            });
+        }
+
+        // Check search query
+        if (!query) {
+            return res.status(400).json({
+                status: false,
+                message: "Song name is required",
+                example:
+                    "/api/music/search?q=believer&apikey=YOUR_API_KEY"
+            });
+        }
+
+        // iTunes Search API
+        const url =
+            "https://itunes.apple.com/search?" +
+            new URLSearchParams({
+                term: query,
+                media: "music",
+                entity: "song",
+                limit: "10"
+            });
+
+        const response = await fetch(url);
+
+        if (!response.ok) {
+            throw new Error("Music service unavailable");
+        }
+
+        const data = await response.json();
+
+        const results = data.results.map(song => ({
+            title: song.trackName || null,
+            artist: song.artistName || null,
+            album: song.collectionName || null,
+            artwork: song.artworkUrl100 || null,
+            preview: song.previewUrl || null,
+            store: song.trackViewUrl || null
+        }));
+
+        return res.json({
+
+            status: true,
+
+            creator: "MADUSANKA API",
+
+            query: query,
+
+            total: results.length,
+
+            results: results
+
+        });
+
+    } catch (error) {
+
+        console.error(
+            "Music API Error:",
+            error.message
+        );
+
+        return res.status(500).json({
+
+            status: false,
+
+            message:
+                "Failed to search music"
+
+        });
+
+    }
+
+});
 
 // =====================================
 // Website Fallback
