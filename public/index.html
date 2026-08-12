@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MADUSANKA API</title>
+
+    <meta
+        name="description"
+        content="MADUSANKA API - Fast, Secure and Powerful API Platform"
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Background -->
+    <div class="background"></div>
+
+    <!-- Navigation -->
+    <header class="navbar">
+
+        <div class="brand">
+            <div class="brand-logo">M</div>
+
+            <div>
+                <h2>MADUSANKA API</h2>
+                <span>Developer Platform</span>
+            </div>
+        </div>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#apis">APIs</a>
+            <a href="#docs">Docs</a>
+            <a href="#status">Status</a>
+        </nav>
+
+        <a href="#apis" class="nav-btn">
+            Explore APIs
+        </a>
+
+    </header>
+
+
+    <!-- Hero -->
+    <main id="home">
+
+        <section class="hero">
+
+            <div class="hero-content">
+
+                <div class="badge">
+                    <span class="online-dot"></span>
+                    All Systems Operational
+                </div>
+
+                <h1>
+                    Powerful APIs for
+                    <span>Developers.</span>
+                </h1>
+
+                <p>
+                    Welcome to MADUSANKA API.
+                    Fast, reliable and easy-to-use APIs
+                    for your projects and applications.
+                </p>
+
+                <div class="hero-buttons">
+
+                    <a href="#apis" class="primary-btn">
+                        Explore APIs →
+                    </a>
+
+                    <a href="#docs" class="secondary-btn">
+                        Documentation
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- API Preview -->
+            <div class="api-card">
+
+                <div class="card-header">
+
+                    <div class="window-buttons">
+                        <i></i>
+                        <i></i>
+                        <i></i>
+                    </div>
+
+                    <span>MADUSANKA API</span>
+
+                </div>
+
+                <div class="code-area">
+
+                    <div>
+                        <span class="code-purple">GET</span>
+                        <span class="code-text">
+                            /api/example
+                        </span>
+                    </div>
+
+                    <div class="code-line">
+                        <span class="code-key">apikey</span>
+                        <span>=</span>
+                        <span class="code-green">
+                            MADUSANKA-123
+                        </span>
+                    </div>
+
+                    <div class="response">
+                        <span>{</span>
+
+                        <div>
+                            <span class="code-key">
+                                "status"
+                            </span>
+                            :
+                            <span class="code-green">
+                                true
+                            </span>
+                        </div>
+
+                        <div>
+                            <span class="code-key">
+                                "message"
+                            </span>
+                            :
+                            <span class="code-orange">
+                                "API Working!"
+                            </span>
+                        </div>
+
+                        <span>}</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Stats -->
+        <section class="stats">
+
+            <div class="stat-box">
+                <strong>10+</strong>
+                <span>APIs</span>
+            </div>
+
+            <div class="stat-box">
+                <strong>99.9%</strong>
+                <span>Uptime</span>
+            </div>
+
+            <div class="stat-box">
+                <strong>24/7</strong>
+                <span>Available</span>
+            </div>
+
+            <div class="stat-box">
+                <strong>Fast</strong>
+                <span>Response</span>
+            </div>
+
+        </section>
+
+
+        <!-- APIs -->
+        <section id="apis" class="section">
+
+            <div class="section-title">
+
+                <div>
+                    <span class="small-title">
+                        API COLLECTION
+                    </span>
+
+                    <h2>Available APIs</h2>
+                </div>
+
+                <span class="api-count">
+                    01 API
+                </span>
+
+            </div>
+
+
+            <div class="api-grid">
+
+                <div class="endpoint-card">
+
+                    <div class="endpoint-top">
+
+                        <div class="endpoint-icon">
+                            ⚡
+                        </div>
+
+                        <span class="method">
+                            GET
+                        </span>
+
+                    </div>
+
+                    <h3>Example API</h3>
+
+                    <p>
+                        Simple example endpoint
+                        for testing MADUSANKA API.
+                    </p>
+
+                    <div class="endpoint-url">
+                        /api/example
+                    </div>
+
+                    <button
+                        onclick="testAPI()"
+                        class="test-btn"
+                    >
+                        Test API
+                    </button>
+
+                </div>
+
+
+                <div class="endpoint-card coming">
+
+                    <div class="endpoint-top">
+
+                        <div class="endpoint-icon">
+                            🧩
+                        </div>
+
+                        <span class="method soon">
+                            SOON
+                        </span>
+
+                    </div>
+
+                    <h3>More APIs</h3>
+
+                    <p>
+                        More powerful APIs will be
+                        added here soon.
+                    </p>
+
+                    <div class="endpoint-url">
+                        /api/coming-soon
+                    </div>
+
+                    <button
+                        class="test-btn disabled"
+                        disabled
+                    >
+                        Coming Soon
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Documentation -->
+        <section id="docs" class="section docs">
+
+            <div class="section-title">
+
+                <div>
+                    <span class="small-title">
+                        DEVELOPER GUIDE
+                    </span>
+
+                    <h2>Quick Documentation</h2>
+                </div>
+
+            </div>
+
+
+            <div class="docs-card">
+
+                <div class="docs-step">
+                    <span>01</span>
+
+                    <div>
+                        <h3>Get an API Key</h3>
+
+                        <p>
+                            Use your API key when making
+                            requests to protected endpoints.
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="docs-step">
+                    <span>02</span>
+
+                    <div>
+                        <h3>Make a Request</h3>
+
+                        <code>
+                            /api/example?apikey=YOUR_API_KEY
+                        </code>
+                    </div>
+                </div>
+
+
+                <div class="docs-step">
+                    <span>03</span>
+
+                    <div>
+                        <h3>Receive JSON Response</h3>
+
+                        <pre>{
+  "status": true,
+  "message": "API Working!"
+}</pre>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Status -->
+        <section id="status" class="section">
+
+            <div class="status-card">
+
+                <div>
+                    <span class="small-title">
+                        SYSTEM STATUS
+                    </span>
+
+                    <h2>
+                        MADUSANKA API
+                    </h2>
+
+                    <p>
+                        Our API services are currently
+                        operational.
+                    </p>
+                </div>
+
+                <div class="status-online">
+                    <span></span>
+                    Operational
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <div class="footer-brand">
+            <div class="brand-logo">M</div>
+
+            <div>
+                <strong>MADUSANKA API</strong>
+                <small>
+                    Developer API Platform
+                </small>
+            </div>
+        </div>
+
+        <p>
+            © 2026 MADUSANKA API. All rights reserved.
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+      </html>
