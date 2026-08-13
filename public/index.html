@@ -1,0 +1,1960 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>MADUSANKA API</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link
+href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+:root{
+
+    --bg:#070b12;
+    --panel:#0b111b;
+    --panel2:#0e1622;
+    --input:#0a111c;
+
+    --border:#1b2737;
+
+    --text:#f1f5fb;
+    --muted:#8491a5;
+
+    --blue:#3182f6;
+    --blue2:#2563eb;
+
+    --green:#28d17c;
+    --red:#ff5364;
+
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    background:var(--bg);
+
+    color:var(--text);
+
+    font-family:
+        Inter,
+        Arial,
+        sans-serif;
+
+    min-height:100vh;
+
+}
+
+
+/* ================================
+TOP NAV
+================================ */
+
+.topbar{
+
+    height:68px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    padding:0 28px;
+
+    background:#080d15;
+
+    border-bottom:
+        1px solid var(--border);
+
+    position:sticky;
+
+    top:0;
+
+    z-index:100;
+
+}
+
+.logo-area{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:11px;
+
+}
+
+.logo{
+
+    width:38px;
+    height:38px;
+
+    border-radius:10px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:
+        linear-gradient(
+            145deg,
+            #3d8cff,
+            #2464d9
+        );
+
+    color:white;
+
+    font-weight:800;
+
+    font-size:18px;
+
+}
+
+.logo-text{
+
+    font-size:14px;
+
+    font-weight:800;
+
+}
+
+.logo-sub{
+
+    display:block;
+
+    color:#647186;
+
+    font-size:8px;
+
+    margin-top:3px;
+
+    letter-spacing:.7px;
+
+}
+
+.nav-right{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+}
+
+.nav-btn{
+
+    padding:9px 14px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:8px;
+
+    color:#b8c3d4;
+
+    background:#0b121d;
+
+    text-decoration:none;
+
+    font-size:10px;
+
+    font-weight:600;
+
+}
+
+.nav-btn:hover{
+
+    border-color:#2e5f9f;
+
+    color:white;
+
+}
+
+
+/* ================================
+LAYOUT
+================================ */
+
+.layout{
+
+    display:flex;
+
+    width:100%;
+
+    max-width:1450px;
+
+    margin:auto;
+
+}
+
+
+/* ================================
+SIDEBAR
+================================ */
+
+.sidebar{
+
+    width:230px;
+
+    min-height:
+        calc(100vh - 68px);
+
+    padding:25px 15px;
+
+    border-right:
+        1px solid var(--border);
+
+    position:sticky;
+
+    top:68px;
+
+    align-self:flex-start;
+
+}
+
+.side-title{
+
+    color:#526075;
+
+    font-size:8px;
+
+    font-weight:800;
+
+    letter-spacing:1.5px;
+
+    margin:
+        0 10px 10px;
+
+}
+
+.side-link{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:10px 11px;
+
+    margin-bottom:3px;
+
+    border-radius:8px;
+
+    color:#7f8b9e;
+
+    text-decoration:none;
+
+    font-size:10px;
+
+    font-weight:600;
+
+}
+
+.side-link:hover,
+.side-link.active{
+
+    color:#fff;
+
+    background:#111a27;
+
+}
+
+.side-icon{
+
+    width:24px;
+
+    height:24px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:6px;
+
+    background:#111a27;
+
+    font-size:11px;
+
+}
+
+.side-link.active .side-icon{
+
+    background:#1c5fc5;
+
+}
+
+
+/* ================================
+MAIN
+================================ */
+
+.main{
+
+    flex:1;
+
+    padding:40px;
+
+    min-width:0;
+
+}
+
+.container{
+
+    max-width:1050px;
+
+    margin:auto;
+
+}
+
+
+/* ================================
+HEADER
+================================ */
+
+.page-head{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-end;
+
+    gap:20px;
+
+    margin-bottom:28px;
+
+}
+
+.eyebrow{
+
+    color:#4b9aff;
+
+    font-size:8px;
+
+    font-weight:800;
+
+    letter-spacing:1.7px;
+
+}
+
+.page-head h1{
+
+    margin-top:7px;
+
+    font-size:30px;
+
+    letter-spacing:-1px;
+
+}
+
+.page-head p{
+
+    margin-top:7px;
+
+    color:var(--muted);
+
+    font-size:11px;
+
+}
+
+.endpoint-count{
+
+    color:#66758b;
+
+    font-size:10px;
+
+    white-space:nowrap;
+
+}
+
+
+/* ================================
+SEARCH
+================================ */
+
+.search{
+
+    position:relative;
+
+    margin-bottom:18px;
+
+}
+
+.search input{
+
+    width:100%;
+
+    height:45px;
+
+    padding:
+        0 15px 0 42px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:9px;
+
+    outline:none;
+
+    background:#0a1019;
+
+    color:white;
+
+    font-size:11px;
+
+}
+
+.search input:focus{
+
+    border-color:#285fa8;
+
+}
+
+.search-icon{
+
+    position:absolute;
+
+    left:15px;
+
+    top:50%;
+
+    transform:
+        translateY(-50%);
+
+    color:#657389;
+
+}
+
+
+/* ================================
+FILTERS
+================================ */
+
+.filters{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:7px;
+
+    margin-bottom:25px;
+
+}
+
+.filter{
+
+    padding:
+        8px 13px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:20px;
+
+    background:#0a1019;
+
+    color:#8793a7;
+
+    cursor:pointer;
+
+    font-size:9px;
+
+    font-weight:600;
+
+}
+
+.filter:hover,
+.filter.active{
+
+    background:#12213a;
+
+    border-color:#285fa8;
+
+    color:#fff;
+
+}
+
+
+/* ================================
+API CARD
+================================ */
+
+.api-card{
+
+    border:
+        1px solid var(--border);
+
+    border-radius:16px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #0d1520,
+            #09101a
+        );
+
+    margin-bottom:16px;
+
+    overflow:hidden;
+
+    transition:.2s;
+
+}
+
+.api-card:hover{
+
+    border-color:#253d5d;
+
+}
+
+
+/* CARD HEADER */
+
+.api-header{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    padding:22px 25px;
+
+}
+
+.api-stripe{
+
+    width:4px;
+
+    height:45px;
+
+    border-radius:5px;
+
+    background:#3b8cff;
+
+}
+
+.api-icon{
+
+    width:46px;
+
+    height:46px;
+
+    border-radius:12px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:20px;
+
+    background:#16243a;
+
+}
+
+.api-title{
+
+    flex:1;
+
+}
+
+.category{
+
+    color:#738196;
+
+    font-size:9px;
+
+    font-weight:700;
+
+    letter-spacing:1px;
+
+}
+
+.api-title h2{
+
+    margin-top:5px;
+
+    font-size:17px;
+
+    letter-spacing:-.3px;
+
+}
+
+.method{
+
+    padding:
+        6px 9px;
+
+    border-radius:6px;
+
+    background:
+        rgba(49,130,246,.1);
+
+    color:#559cff;
+
+    font-size:8px;
+
+    font-weight:800;
+
+}
+
+
+/* BODY */
+
+.api-body{
+
+    padding:0 25px 24px;
+
+    border-top:
+        1px solid var(--border);
+
+}
+
+.api-description{
+
+    color:#8290a4;
+
+    font-size:11px;
+
+    line-height:1.7;
+
+    padding:
+        18px 0 20px;
+
+}
+
+
+/* REQUEST */
+
+.label{
+
+    color:#718097;
+
+    font-size:8px;
+
+    font-weight:800;
+
+    letter-spacing:1.1px;
+
+    margin-bottom:7px;
+
+}
+
+.request-row{
+
+    display:flex;
+
+    gap:10px;
+
+}
+
+.request-url{
+
+    flex:1;
+
+    min-width:0;
+
+    height:43px;
+
+    display:flex;
+
+    align-items:center;
+
+    padding:0 13px;
+
+    overflow:hidden;
+
+    white-space:nowrap;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:9px;
+
+    background:var(--input);
+
+    color:#4e9aff;
+
+    font-family:monospace;
+
+    font-size:10px;
+
+}
+
+.copy{
+
+    width:75px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:9px;
+
+    background:#0c1420;
+
+    color:#c4ccda;
+
+    cursor:pointer;
+
+    font-size:10px;
+
+}
+
+.copy:hover{
+
+    background:#142237;
+
+}
+
+
+/* INPUTS */
+
+.input-group{
+
+    margin-top:18px;
+
+}
+
+.input{
+
+    width:100%;
+
+    height:43px;
+
+    padding:0 13px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:9px;
+
+    outline:none;
+
+    background:var(--input);
+
+    color:white;
+
+    font-family:monospace;
+
+    font-size:10px;
+
+}
+
+.input:focus{
+
+    border-color:#2864ad;
+
+}
+
+.input::placeholder{
+
+    color:#4f5d72;
+
+}
+
+
+/* TEST */
+
+.test-area{
+
+    display:flex;
+
+    gap:10px;
+
+    margin-top:20px;
+
+}
+
+.run{
+
+    flex:1;
+
+    height:44px;
+
+    border:0;
+
+    border-radius:9px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #347ff0,
+            #2563d8
+        );
+
+    color:white;
+
+    cursor:pointer;
+
+    font-size:10px;
+
+    font-weight:800;
+
+}
+
+.run:hover{
+
+    filter:brightness(1.1);
+
+}
+
+.status{
+
+    min-width:110px;
+
+    height:44px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:9px;
+
+    background:#0a1019;
+
+    color:#6d7a8e;
+
+    font-family:monospace;
+
+    font-size:10px;
+
+}
+
+
+/* RESPONSE */
+
+.response{
+
+    margin-top:18px;
+
+    display:none;
+
+}
+
+.response.show{
+
+    display:block;
+
+}
+
+.response pre{
+
+    max-height:260px;
+
+    overflow:auto;
+
+    padding:15px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:9px;
+
+    background:#060a10;
+
+    color:#aebbd0;
+
+    font-family:monospace;
+
+    font-size:10px;
+
+    line-height:1.7;
+
+}
+
+
+/* ================================
+FOOTER
+================================ */
+
+.footer{
+
+    margin-top:45px;
+
+    padding-top:20px;
+
+    border-top:
+        1px solid var(--border);
+
+    display:flex;
+
+    justify-content:space-between;
+
+    color:#4f5c70;
+
+    font-size:8px;
+
+}
+
+
+/* ================================
+MOBILE
+================================ */
+
+@media(max-width:800px){
+
+    .sidebar{
+
+        display:none;
+
+    }
+
+    .main{
+
+        padding:
+            25px 15px 50px;
+
+    }
+
+    .page-head{
+
+        align-items:flex-start;
+
+        flex-direction:column;
+
+    }
+
+    .page-head h1{
+
+        font-size:26px;
+
+    }
+
+    .api-header{
+
+        padding:18px;
+
+    }
+
+    .api-body{
+
+        padding:
+            0 18px 20px;
+
+    }
+
+    .api-title h2{
+
+        font-size:15px;
+
+    }
+
+    .api-icon{
+
+        width:40px;
+        height:40px;
+
+    }
+
+    .request-row{
+
+        flex-direction:column;
+
+    }
+
+    .copy{
+
+        width:100%;
+
+        height:40px;
+
+    }
+
+    .test-area{
+
+        flex-direction:column;
+
+    }
+
+    .status{
+
+        width:100%;
+
+    }
+
+    .topbar{
+
+        padding:
+            0 15px;
+
+    }
+
+    .nav-btn{
+
+        padding:
+            8px 11px;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<!-- =================================
+TOP BAR
+================================= -->
+
+<header class="topbar">
+
+<div class="logo-area">
+
+<div class="logo">
+M
+</div>
+
+<div>
+
+<div class="logo-text">
+MADUSANKA API
+</div>
+
+<span class="logo-sub">
+DEVELOPER PLATFORM
+</span>
+
+</div>
+
+</div>
+
+
+<div class="nav-right">
+
+<a
+href="/auth/google"
+class="nav-btn"
+>
+Sign in with Google
+</a>
+
+</div>
+
+</header>
+
+
+
+<div class="layout">
+
+
+<!-- =================================
+SIDEBAR
+================================= -->
+
+<aside class="sidebar">
+
+<div class="side-title">
+PLATFORM
+</div>
+
+<a
+href="#overview"
+class="side-link active"
+>
+<span class="side-icon">
+⌂
+</span>
+Overview
+</a>
+
+<a
+href="#apis"
+class="side-link"
+>
+<span class="side-icon">
+⚡
+</span>
+All APIs
+</a>
+
+<a
+href="#media"
+class="side-link"
+>
+<span class="side-icon">
+▶
+</span>
+Media
+</a>
+
+<a
+href="#tools"
+class="side-link"
+>
+<span class="side-icon">
+🧩
+</span>
+Tools
+</a>
+
+<a
+href="#ai"
+class="side-link"
+>
+<span class="side-icon">
+✦
+</span>
+AI
+</a>
+
+
+<br>
+
+<div class="side-title">
+ACCOUNT
+</div>
+
+<a
+href="/auth/google"
+class="side-link"
+>
+<span class="side-icon">
+♙
+</span>
+Dashboard
+</a>
+
+<a
+href="/auth/google"
+class="side-link"
+>
+<span class="side-icon">
+🔑
+</span>
+API Keys
+</a>
+
+</aside>
+
+
+
+<!-- =================================
+MAIN
+================================= -->
+
+<main class="main">
+
+<div class="container">
+
+
+<!-- HEADER -->
+
+<section id="overview">
+
+<div class="page-head">
+
+<div>
+
+<div class="eyebrow">
+MADUSANKA API
+</div>
+
+<h1>
+API Marketplace
+</h1>
+
+<p>
+Explore, test and integrate powerful APIs.
+</p>
+
+</div>
+
+<div class="endpoint-count">
+3 endpoints shown
+</div>
+
+</div>
+
+
+<!-- SEARCH -->
+
+<div class="search">
+
+<span class="search-icon">
+⌕
+</span>
+
+<input
+id="search"
+type="text"
+placeholder="Search APIs..."
+oninput="searchAPIs()"
+>
+
+</div>
+
+
+<!-- FILTERS -->
+
+<div class="filters">
+
+<button
+class="filter active"
+onclick="filterAPI('all',this)"
+>
+All
+</button>
+
+<button
+class="filter"
+onclick="filterAPI('media',this)"
+>
+Media
+</button>
+
+<button
+class="filter"
+onclick="filterAPI('tools',this)"
+>
+Tools
+</button>
+
+<button
+class="filter"
+onclick="filterAPI('ai',this)"
+>
+AI
+</button>
+
+</div>
+
+</section>
+
+
+
+<!-- =================================
+API 1
+================================= -->
+
+<section
+class="api-card"
+data-category="media"
+data-name="youtube downloader"
+id="media"
+>
+
+<div class="api-header">
+
+<div class="api-stripe"></div>
+
+<div class="api-icon">
+▶
+</div>
+
+<div class="api-title">
+
+<div class="category">
+MEDIA
+</div>
+
+<h2>
+YouTube Downloader
+</h2>
+
+</div>
+
+<div class="method">
+GET
+</div>
+
+</div>
+
+
+<div class="api-body">
+
+<p class="api-description">
+
+Convert or retrieve content only where you
+have the necessary rights or permission.
+This endpoint is intended for authorized media.
+
+</p>
+
+
+<div class="label">
+REQUEST URL
+</div>
+
+<div class="request-row">
+
+<div
+class="request-url"
+id="url1"
+>
+/api/media/download
+</div>
+
+<button
+class="copy"
+onclick="copyText('/api/media/download')"
+>
+Copy
+</button>
+
+</div>
+
+
+<div class="input-group">
+
+<div class="label">
+MEDIA URL
+</div>
+
+<input
+id="mediaUrl"
+class="input"
+placeholder="https://example.com/media..."
+>
+
+</div>
+
+
+<div class="test-area">
+
+<button
+class="run"
+onclick="testMedia()"
+>
+▶ Run Test
+</button>
+
+<div
+class="status"
+id="status1"
+>
+idle
+</div>
+
+</div>
+
+
+<div
+class="response"
+id="response1"
+>
+
+<div class="label">
+RESPONSE
+</div>
+
+<pre id="result1"></pre>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =================================
+API 2
+================================= -->
+
+<section
+class="api-card"
+data-category="media"
+data-name="song search music"
+>
+
+<div class="api-header">
+
+<div class="api-stripe"></div>
+
+<div
+class="api-icon"
+style="background:#1d2028"
+>
+♪ 
+</div>
+
+<div class="api-title">
+
+<div class="category">
+MEDIA
+</div>
+
+<h2>
+Song Search
+</h2>
+
+</div>
+
+<div class="method">
+GET
+</div>
+
+</div>
+
+
+<div class="api-body">
+
+<p class="api-description">
+
+Search music metadata including track title,
+artist, album, artwork and official preview links.
+
+</p>
+
+
+<div class="label">
+REQUEST URL
+</div>
+
+<div class="request-row">
+
+<div class="request-url">
+/api/music/search
+</div>
+
+<button
+class="copy"
+onclick="copyText('/api/music/search')"
+>
+Copy
+</button>
+
+</div>
+
+
+<div class="input-group">
+
+<div class="label">
+SEARCH QUERY
+</div>
+
+<input
+id="songQuery"
+class="input"
+placeholder="believer, shape of you..."
+>
+
+</div>
+
+
+<div class="test-area">
+
+<button
+class="run"
+onclick="testSong()"
+>
+▶ Run Test
+</button>
+
+<div
+class="status"
+id="status2"
+>
+idle
+</div>
+
+</div>
+
+
+<div
+class="response"
+id="response2"
+>
+
+<div class="label">
+RESPONSE
+</div>
+
+<pre id="result2"></pre>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =================================
+API 3
+================================= -->
+
+<section
+class="api-card"
+data-category="tools"
+data-name="example test api"
+id="tools"
+>
+
+<div class="api-header">
+
+<div class="api-stripe"></div>
+
+<div
+class="api-icon"
+style="background:#151d27"
+>
+⚡
+</div>
+
+<div class="api-title">
+
+<div class="category">
+TOOLS
+</div>
+
+<h2>
+Example API
+</h2>
+
+</div>
+
+<div class="method">
+GET
+</div>
+
+</div>
+
+
+<div class="api-body">
+
+<p class="api-description">
+
+A simple endpoint to verify that your
+MADUSANKA API connection is working.
+
+</p>
+
+
+<div class="label">
+REQUEST URL
+</div>
+
+<div class="request-row">
+
+<div class="request-url">
+/api/example
+</div>
+
+<button
+class="copy"
+onclick="copyText('/api/example')"
+>
+Copy
+</button>
+
+</div>
+
+
+<div class="input-group">
+
+<div class="label">
+API KEY
+</div>
+
+<input
+id="apiKey"
+class="input"
+type="password"
+placeholder="YOUR_API_KEY"
+>
+
+</div>
+
+
+<div class="test-area">
+
+<button
+class="run"
+onclick="testExample()"
+>
+▶ Run Test
+</button>
+
+<div
+class="status"
+id="status3"
+>
+idle
+</div>
+
+</div>
+
+
+<div
+class="response"
+id="response3"
+>
+
+<div class="label">
+RESPONSE
+</div>
+
+<pre id="result3"></pre>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =================================
+FOOTER
+================================= -->
+
+<footer class="footer">
+
+<span>
+MADUSANKA API
+</span>
+
+<span>
+Developer Platform • 2026
+</span>
+
+</footer>
+
+
+</div>
+
+</main>
+
+</div>
+
+
+
+<script>
+
+/* =================================
+COPY
+================================= */
+
+function copyText(text){
+
+navigator.clipboard.writeText(text);
+
+}
+
+
+/* =================================
+SEARCH
+================================= */
+
+function searchAPIs(){
+
+const query =
+document
+.getElementById("search")
+.value
+.toLowerCase();
+
+document
+.querySelectorAll(".api-card")
+.forEach(card=>{
+
+const name =
+card.dataset.name
+.toLowerCase();
+
+if(name.includes(query)){
+
+card.style.display="block";
+
+}else{
+
+card.style.display="none";
+
+}
+
+});
+
+}
+
+
+/* =================================
+FILTER
+================================= */
+
+function filterAPI(category,button){
+
+document
+.querySelectorAll(".filter")
+.forEach(btn=>{
+btn.classList.remove("active");
+});
+
+button.classList.add("active");
+
+document
+.querySelectorAll(".api-card")
+.forEach(card=>{
+
+if(
+category==="all" ||
+card.dataset.category===category
+){
+
+card.style.display="block";
+
+}else{
+
+card.style.display="none";
+
+}
+
+});
+
+}
+
+
+/* =================================
+EXAMPLE API
+================================ */
+
+async function testExample(){
+
+const key =
+document
+.getElementById("apiKey")
+.value;
+
+const status =
+document.getElementById("status3");
+
+const response =
+document.getElementById("response3");
+
+const result =
+document.getElementById("result3");
+
+if(!key){
+
+result.textContent =
+"API key is required.";
+
+response.classList.add("show");
+
+return;
+
+}
+
+status.textContent="loading...";
+
+try{
+
+const res =
+await fetch(
+"/api/example?apikey="+
+encodeURIComponent(key)
+);
+
+const data =
+await res.json();
+
+status.textContent =
+res.ok ? "200 OK" : res.status;
+
+result.textContent =
+JSON.stringify(
+data,
+null,
+2
+);
+
+response.classList.add("show");
+
+}catch(error){
+
+status.textContent="error";
+
+result.textContent =
+error.message;
+
+response.classList.add("show");
+
+}
+
+}
+
+
+/* =================================
+SONG SEARCH
+================================= */
+
+async function testSong(){
+
+const query =
+document
+.getElementById("songQuery")
+.value;
+
+const status =
+document.getElementById("status2");
+
+const response =
+document.getElementById("response2");
+
+const result =
+document.getElementById("result2");
+
+if(!query){
+
+result.textContent =
+"Search query is required.";
+
+response.classList.add("show");
+
+return;
+
+}
+
+status.textContent="loading...";
+
+try{
+
+const res =
+await fetch(
+"/api/music/search?q="+
+encodeURIComponent(query)
+);
+
+const data =
+await res.json();
+
+status.textContent =
+res.ok ? "200 OK" : res.status;
+
+result.textContent =
+JSON.stringify(
+data,
+null,
+2
+);
+
+response.classList.add("show");
+
+}catch(error){
+
+status.textContent="error";
+
+result.textContent =
+error.message;
+
+response.classList.add("show");
+
+}
+
+}
+
+
+/* =================================
+MEDIA TEST
+================================= */
+
+async function testMedia(){
+
+const url =
+document
+.getElementById("mediaUrl")
+.value;
+
+const status =
+document.getElementById("status1");
+
+const response =
+document.getElementById("response1");
+
+const result =
+document.getElementById("result1");
+
+if(!url){
+
+result.textContent =
+"Media URL is required.";
+
+response.classList.add("show");
+
+return;
+
+}
+
+status.textContent="loading...";
+
+result.textContent =
+JSON.stringify({
+
+status:false,
+
+message:
+"Media processing endpoint is not configured yet.",
+
+url:url
+
+},null,2);
+
+status.textContent="ready";
+
+response.classList.add("show");
+
+}
+
+
+/* =================================
+LIVE HEALTH
+================================= */
+
+fetch("/health")
+.then(res=>{
+
+if(res.ok){
+
+console.log(
+"MADUSANKA API ONLINE"
+);
+
+}
+
+})
+.catch(()=>{
+
+console.log(
+"MADUSANKA API OFFLINE"
+);
+
+});
+
+</script>
+
+</body>
+  </html>
